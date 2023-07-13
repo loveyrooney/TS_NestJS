@@ -1,5 +1,4 @@
 import { CreateMovieDTO } from './dto/create.movie.dto';
-import { UpdateMovieDTO } from './dto/update.movie.dto';
 import { Movie } from './entities/movies.entity';
 import { MoviesService } from './movies.service';
 import {
@@ -17,6 +16,10 @@ import {
 export class MoviesController {
   constructor(private readonly moviesService: MoviesService) {}
 
+  @Get()
+  getAll(): Promise<Movie[]> {
+    return this.moviesService.gelAll();
+  }
   // @Get()
   // getAll(): Movie[] {
   //   return this.moviesService.getAll();
@@ -35,18 +38,32 @@ export class MoviesController {
   // getOne(@Param('id') id: number): Movie {
   //   return this.moviesService.getOne(id);
   // }
-
+  @Post()
+  create(@Body() createMovieDTO: CreateMovieDTO): Promise<Movie> {
+    console.log(createMovieDTO);
+    return this.moviesService.create(createMovieDTO);
+  }
   // @Post()
   // create(@Body() movieData: CreateMovieDTO) {
   //   console.log(movieData);
   //   return this.moviesService.create(movieData);
   // }
-
+  @Delete('/:id')
+  remove(@Param('id') id: number): Promise<void> {
+    return this.moviesService.deleteOne(id);
+  }
   // @Delete('/:id')
   // remove(@Param('id') id: number) {
   //   return this.moviesService.deleteOne(id);
   // }
 
+  @Patch('/:id')
+  patch(
+    @Param('id') id: number,
+    @Body() updateData: CreateMovieDTO,
+  ): Promise<Movie> {
+    return this.moviesService.update(id, updateData);
+  }
   // @Patch('/:id')
   // patch(@Param('id') id: number, @Body() updateData: UpdateMovieDTO) {
   //   return this.moviesService.update(id, updateData);

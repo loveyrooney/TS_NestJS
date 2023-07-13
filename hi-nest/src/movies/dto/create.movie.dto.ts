@@ -1,4 +1,4 @@
-import { IsString, IsNumber, IsOptional } from 'class-validator';
+import { IsString, IsNumber } from 'class-validator';
 
 export class CreateMovieDTO {
   @IsString()
@@ -6,8 +6,4 @@ export class CreateMovieDTO {
 
   @IsNumber()
   readonly year: number;
-
-  @IsOptional()
-  @IsString({ each: true })
-  readonly genres: string[];
 }

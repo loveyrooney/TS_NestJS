@@ -1,7 +1,8 @@
-import { BaseEntity, Column, PrimaryGeneratedColumn } from 'typeorm';
-
+import { BaseEntity, Column, Entity, PrimaryColumn } from 'typeorm';
+import { genres } from '../movies.genres';
+@Entity()
 export class Movie extends BaseEntity {
-  @PrimaryGeneratedColumn()
+  @PrimaryColumn()
   id: number;
 
   @Column()
@@ -11,5 +12,5 @@ export class Movie extends BaseEntity {
   year: number;
 
   @Column()
-  genres: string[];
+  genres: genres;
 }
