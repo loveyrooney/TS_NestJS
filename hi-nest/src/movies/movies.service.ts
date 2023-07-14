@@ -1,18 +1,20 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { Movie } from './entities/movies.entity';
+import { MovieEntity } from './entities/movies.entity';
 import { CreateMovieDTO } from './dto/create.movie.dto';
-import { MoviesReporisoty } from './movies.repository';
+// import { MoviesReporisoty } from './movies.repository';
 import { InjectRepository } from '@nestjs/typeorm';
 import { genres } from './movies.genres';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class MoviesService {
   constructor(
-    @InjectRepository(Movie)
-    private readonly moviesReporisoty: MoviesReporisoty,
+    //레포지토리 클래스를 임포트해 그것을 타입으로 줄 수도 있고, 지금처럼 typeORM의 Repository 타입으로 임포트할 수도 있다.
+    @InjectRepository(MovieEntity)
+    private readonly moviesReporisoty: Repository<MovieEntity>,
   ) {}
 
-  async gelAll(): Promise<Movie[]> {
+  async gelAll(): Promise<MovieEntity[]> {
     const movies = await this.moviesReporisoty.find();
     return movies;
   }
@@ -20,7 +22,7 @@ export class MoviesService {
   //   return this.movies;
   // }
 
-  async getOne(id: number): Promise<Movie> {
+  async getOne(id: number): Promise<MovieEntity> {
     const movie = await this.moviesReporisoty.findOne({ where: { id: id } });
     if (!movie) {
       throw new NotFoundException(`movie with ID ${id} not found.`);
@@ -45,11 +47,9 @@ export class MoviesService {
   //   this.movies = this.movies.filter((movie) => movie.id !== id);
   // }
 
-  async create(createMovieDTO: CreateMovieDTO): Promise<Movie> {
-    const count = await this.moviesReporisoty.count();
+  async create(createMovieDTO: CreateMovieDTO): Promise<MovieEntity> {
     const { title, year } = createMovieDTO;
     const movie = await this.moviesReporisoty.create({
-      id: count + 1,
       title,
       year,
       genres: genres.ACTION,
@@ -64,7 +64,10 @@ export class MoviesService {
   //   });
   // }
 
-  async update(id: number, updateMovieDTO: CreateMovieDTO): Promise<Movie> {
+  async update(
+    id: number,
+    updateMovieDTO: CreateMovieDTO,
+  ): Promise<MovieEntity> {
     await this.deleteOne(id);
     const newdata = await this.create(updateMovieDTO);
     return newdata;
