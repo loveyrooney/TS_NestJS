@@ -14,7 +14,7 @@ export class MoviesService {
     private readonly moviesReporisoty: Repository<MovieEntity>,
   ) {}
 
-  async gelAll(): Promise<MovieEntity[]> {
+  async getAll(): Promise<MovieEntity[]> {
     const movies = await this.moviesReporisoty.find();
     return movies;
   }
