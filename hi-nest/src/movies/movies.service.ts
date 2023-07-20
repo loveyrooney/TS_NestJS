@@ -8,8 +8,8 @@ import { Repository } from 'typeorm';
 
 @Injectable()
 export class MoviesService {
+  //레포지토리 클래스를 임포트해 그것을 타입으로 줄 수도 있고, 지금처럼 typeORM의 Repository 타입으로 임포트할 수도 있다.
   constructor(
-    //레포지토리 클래스를 임포트해 그것을 타입으로 줄 수도 있고, 지금처럼 typeORM의 Repository 타입으로 임포트할 수도 있다.
     @InjectRepository(MovieEntity)
     private readonly moviesReporisoty: Repository<MovieEntity>,
   ) {}
