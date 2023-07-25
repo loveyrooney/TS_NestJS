@@ -18,7 +18,7 @@ export class MoviesController {
 
   @Get()
   getAll(): Promise<MovieEntity[]> {
-    return this.moviesService.gelAll();
+    return this.moviesService.getAll();
   }
   // @Get()
   // getAll(): Movie[] {
