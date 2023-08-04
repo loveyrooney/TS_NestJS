@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { MoviesService } from './movies.service';
 import { Repository } from 'typeorm';
-import { MovieEntity } from './entities/movies.entity';
+import { MovieEntity } from '../entities/movies.entity';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { NotFoundException } from '@nestjs/common';
 import { genres } from './movies.genres';

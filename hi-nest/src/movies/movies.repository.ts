@@ -1,5 +1,5 @@
 import { Repository } from 'typeorm';
-import { MovieEntity } from './entities/movies.entity';
+import { MovieEntity } from '../entities/movies.entity';
 
 export class MoviesReporisoty extends Repository<MovieEntity> {}
 

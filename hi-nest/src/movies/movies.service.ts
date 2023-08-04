@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { MovieEntity } from './entities/movies.entity';
-import { CreateMovieDTO } from './dto/create.movie.dto';
+import { MovieEntity } from '../entities/movies.entity';
+import { CreateMovieDTO } from './MovieDTO/create.movie.dto';
 // import { MoviesReporisoty } from './movies.repository';
 import { InjectRepository } from '@nestjs/typeorm';
 import { genres } from './movies.genres';
@@ -11,11 +11,11 @@ export class MoviesService {
   //레포지토리 클래스를 임포트해 그것을 타입으로 줄 수도 있고, 지금처럼 typeORM의 Repository 타입으로 임포트할 수도 있다.
   constructor(
     @InjectRepository(MovieEntity)
-    private readonly moviesReporisoty: Repository<MovieEntity>,
+    private readonly moviesRepository: Repository<MovieEntity>,
   ) {}
 
   async getAll(): Promise<MovieEntity[]> {
-    const movies = await this.moviesReporisoty.find();
+    const movies = await this.moviesRepository.find();
     return movies;
   }
   // getAll(): Movie[] {
@@ -23,7 +23,7 @@ export class MoviesService {
   // }
 
   async getOne(id: number): Promise<MovieEntity> {
-    const movie = await this.moviesReporisoty.findOne({ where: { id: id } });
+    const movie = await this.moviesRepository.findOne({ where: { id: id } });
     if (!movie) {
       throw new NotFoundException(`movie with ID ${id} not found.`);
     }
@@ -39,7 +39,7 @@ export class MoviesService {
 
   async deleteOne(id: number): Promise<void> {
     const find = await this.getOne(id);
-    const result = await this.moviesReporisoty.remove(find);
+    const result = await this.moviesRepository.remove(find);
     console.log(result);
   }
   // deleteOne(id: number) {
@@ -49,12 +49,12 @@ export class MoviesService {
 
   async create(createMovieDTO: CreateMovieDTO): Promise<MovieEntity> {
     const { title, year } = createMovieDTO;
-    const movie = await this.moviesReporisoty.create({
+    const movie = await this.moviesRepository.create({
       title,
       year,
       genres: genres.ACTION,
     });
-    await this.moviesReporisoty.save(movie);
+    await this.moviesRepository.save(movie);
     return movie;
   }
   // create(movieData: CreateMovieDTO) {

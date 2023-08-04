@@ -4,7 +4,7 @@ import { MoviesService } from './movies.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 // import { MoviesReporisoty } from './movies.repository';
 //레포지토리 클래스를 사용하려면 providers에 넣어줘야 한다.
-import { MovieEntity } from './entities/movies.entity';
+import { MovieEntity } from '../entities/movies.entity';
 
 @Module({
   imports: [TypeOrmModule.forFeature([MovieEntity])],

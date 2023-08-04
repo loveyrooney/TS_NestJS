@@ -1,5 +1,5 @@
-import { CreateMovieDTO } from './dto/create.movie.dto';
-import { MovieEntity } from './entities/movies.entity';
+import { CreateMovieDTO } from './MovieDTO/create.movie.dto';
+import { MovieEntity } from '../entities/movies.entity';
 import { MoviesService } from './movies.service';
 import {
   Controller,
