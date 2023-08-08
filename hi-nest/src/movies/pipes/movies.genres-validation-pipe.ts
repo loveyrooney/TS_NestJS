@@ -3,7 +3,7 @@ import {
   ArgumentMetadata,
   BadRequestException,
 } from '@nestjs/common';
-import { genres } from '../movies/movies.genres';
+import { genres } from '../movies.genres';
 
 export class GenresValidationPipe implements PipeTransform {
   readonly GenresOption = [

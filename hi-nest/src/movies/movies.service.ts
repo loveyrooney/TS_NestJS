@@ -1,4 +1,9 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  ConflictException,
+  Injectable,
+  InternalServerErrorException,
+  NotFoundException,
+} from '@nestjs/common';
 import { MovieEntity } from '../entities/movies.entity';
 import { CreateMovieDTO } from './MovieDTO/create.movie.dto';
 // import { MoviesReporisoty } from './movies.repository';
@@ -48,13 +53,21 @@ export class MoviesService {
   // }
 
   async create(createMovieDTO: CreateMovieDTO): Promise<MovieEntity> {
-    const { title, year } = createMovieDTO;
+    const { title, year, director } = createMovieDTO;
     const movie = await this.moviesRepository.create({
       title,
       year,
+      director,
       genres: genres.ACTION,
     });
-    await this.moviesRepository.save(movie);
+    try {
+      await this.moviesRepository.save(movie);
+    } catch (e) {
+      if (e.code === '23505')
+        throw new ConflictException('Already existed movie');
+      else throw new InternalServerErrorException();
+    }
+
     return movie;
   }
   // create(movieData: CreateMovieDTO) {

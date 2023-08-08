@@ -6,4 +6,7 @@ export class CreateMovieDTO {
 
   @IsNumber()
   readonly year: number;
+
+  @IsString()
+  readonly director: string;
 }

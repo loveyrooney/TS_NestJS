@@ -9,7 +9,7 @@ export class AuthController {
 
   @Get()
   getAll(): Promise<UserEntity[]> {
-    return this.authService.getAll();
+    return this.authService.getAllUser();
   }
 
   @Post('/signup')
