@@ -1,9 +1,8 @@
-import Navbar from "./../components/Navbar";
+import Layout from "./../components/Layout";
 
 export default function App({ Component, pageProps }) {
   return (
-    <>
-      <Navbar />
+    <Layout>
       <Component {...pageProps} />
       <footer>copyrighted by rooney</footer>
       <style jsx global>{`
@@ -14,7 +13,7 @@ export default function App({ Component, pageProps }) {
           text-decoration: none;
         }
       `}</style>
-    </>
+    </Layout>
   );
 }
 
