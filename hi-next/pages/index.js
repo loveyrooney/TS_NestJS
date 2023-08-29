@@ -17,14 +17,14 @@ export default function Home() {
   );
 }
 
-export async function getServerSideProps() {
-  const { results } = await (await axios.get(`url`)).json;
-  return {
-    props: {
-      results,
-    },
-  };
-}
+// export async function getServerSideProps() {
+//   const { results } = await (await axios.get(`url`)).json;
+//   return {
+//     props: {
+//       results,
+//     },
+//   };
+// }
 
 //파일 제목이 곧 url이 된다. 단, index.js는 /index 라고는 사용할 수 없다.
 //하위 라우터를 만들경우, 상위 라우터 : 폴더이름 하위 라우터 : 파일이름 으로 한다. 상위 라우터의 index.js는 페이지 최상단에 상위라우터.js와 같다.
