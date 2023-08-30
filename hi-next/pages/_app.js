@@ -1,19 +1,14 @@
-import Layout from "./../components/Layout";
+import "../styles/globals.css";
+import Link from "next/link";
 
 export default function App({ Component, pageProps }) {
   return (
-    <Layout>
+    <>
       <Component {...pageProps} />
-      <footer>copyrighted by rooney</footer>
-      <style jsx global>{`
-        body {
-          background-color: yellow;
-        }
-        a {
-          text-decoration: none;
-        }
-      `}</style>
-    </Layout>
+      <footer className="text-center font-light text-white">
+        copyrighted by rooney
+      </footer>
+    </>
   );
 }
 
