@@ -5,7 +5,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Component {...pageProps} />
-      <footer className="text-center font-light text-white">
+      <footer className="text-center font-light text-green-500">
         copyrighted by rooney
       </footer>
     </>

@@ -5,39 +5,41 @@ import { useRouter } from "next/router";
 export default function Navbar() {
   const router = useRouter();
   return (
-    <header class="text-gray-400 bg-gray-900 body-font">
-      <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+    <header className="text-gray-400 bg-gray-900 body-font">
+      <div className="container mx-auto flex flex-wrap p-5 flex-row md:flex-row items-center">
         <a
           href="/"
-          class="flex title-font font-medium items-center text-white mb-4 md:mb-0"
+          className="mx-3 flex title-font font-medium items-center text-white"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            class="w-10 h-10 text-white p-2 bg-green-500 rounded-full"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            className="w-10 h-10 text-white p-2 bg-green-500 rounded-full"
             viewBox="0 0 24 24"
           >
             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
           </svg>
-          <span class="ml-3 text-xl">rooney의 Scenario Board</span>
+          <span className="hidden md:flex ml-3 text-xl">
+            rooney의 Scenario Board
+          </span>
         </a>
-        <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-          <Link href="/space/treatment" class="mr-5 hover:text-white">
+        <nav className="md:ml-auto md:mr-auto flex flex-wrap text-base justify-center">
+          <Link href="/space/treatment" className="mr-5 hover:text-white">
             TREATMENT
           </Link>
-          <Link href="/space/scene" class="mr-5 hover:text-white">
+          <Link href="/space/scene" className="mr-5 hover:text-white">
             SCENE
           </Link>
-          <Link href="/space/scenario" class="mr-5 hover:text-white">
+          <Link href="/space/scenario" className="mr-5 hover:text-white">
             SCENARIO
           </Link>
         </nav>
-        <button class="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0">
-          Sign In
+        <button className="hidden md:flex inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0">
+          <Link href="/user">Sign In</Link>
         </button>
       </div>
     </header>
