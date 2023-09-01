@@ -1,7 +1,7 @@
 export default function Paper({ children }) {
   return (
     <>
-      <form className="col-span-3 bg-gray-700 text-gray-400">
+      <form className="col-start-4 col-span-9 bg-gray-700 text-gray-400">
         <textarea
           cols="100"
           defaultValue={"we need data"}

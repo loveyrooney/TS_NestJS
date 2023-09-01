@@ -1,12 +1,9 @@
-export default function Table({ children }) {
+import Cell from "./cell";
+
+export default function Table({ classProps }) {
   return (
-    <>
-      <div className="col-span-3 bg-gray-800 text-gray-400 p-3">
-        <ul>
-          <li className="border-solid border-2 border-gray-900">#1.</li>
-        </ul>
-      </div>
-      <div>{children}</div>
-    </>
+    <div className="col-start-4">
+      <Cell classProps={classProps} />
+    </div>
   );
 }

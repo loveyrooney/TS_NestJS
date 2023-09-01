@@ -1,9 +1,11 @@
-export default function Branch({ children }) {
+import SceneSheet from "./Sheet";
+
+export default function Branch({ list, index }) {
   return (
     <div className="text-gray-600 border-solid border-2 border-gray-800 mt-3 p-3">
       <div
         className="text-right font-semibold text-lg cursor-pointer hover:text-white rounded-lg"
-        onClick={(e: React.MouseEvent<HTMLElement>) => {
+        onClick={(e) => {
           console.log(e.target.nextSibling.className);
           e.target.nextSibling.className === "hidden"
             ? (e.target.nextSibling.className =
@@ -11,7 +13,7 @@ export default function Branch({ children }) {
             : (e.target.nextSibling.className = "hidden");
         }}
       >
-        ver 1
+        ver {index}
       </div>
       <div className="hidden">
         <span className="w-20 text-center text-sm">rename</span>
@@ -23,7 +25,9 @@ export default function Branch({ children }) {
           stroke="currentColor"
           className="w-20 h-6 hover:stroke-white cursor-pointer"
           onClick={(e) => {
+            console.log(e);
             e.target.parentElement.parentElement.remove();
+            //svg가 타겟이 될 때와 path가 타겟이 될 때 결과가 달라진다. 좀더 근본적으로 다른 방법 생각해서 해결하기
           }}
         >
           <path
@@ -33,7 +37,7 @@ export default function Branch({ children }) {
           />
         </svg>
       </div>
-      <div>{children}</div>
+      <SceneSheet list={list} />
     </div>
   );
 }

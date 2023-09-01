@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import Heads from "../components/Heads";
-import Navbar from "./../components/Navbar";
+import Link from "next/link";
 
 //Home() 함수 인자에 {results} 주면 pageProps를 쓸 수 있음.
 export default function Home() {
@@ -9,7 +9,6 @@ export default function Home() {
     <>
       <div>
         <Heads title="Home" />
-        <Navbar />
         <section className="text-gray-400 bg-gray-900 body-font">
           <div className="container px-5 py-24 mx-auto">
             <div className="flex flex-col text-center w-full mb-20">
@@ -25,7 +24,7 @@ export default function Home() {
             </div>
             <div className="flex flex-wrap -m-2">
               <div className="lg:w-1/3 sm:w-1/2 p-4">
-                <a href="/space">
+                <Link href="/space">
                   <div className="flex relative">
                     <img
                       alt="gallery"
@@ -44,7 +43,7 @@ export default function Home() {
                       </p>
                     </div>
                   </div>
-                </a>
+                </Link>
               </div>
               <div className="lg:w-1/3 sm:w-1/2 p-4">
                 <div className="flex relative">
