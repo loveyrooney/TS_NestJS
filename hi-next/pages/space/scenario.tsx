@@ -1,16 +1,16 @@
-import Branch from "@/components/Branch";
-import Heads from "@/components/Heads";
-import Navbar from "@/components/Navbar";
-import Paper from "@/components/Paper";
-import TreatmentSheet from "@/components/TreatmentSheet";
+import Heads from "./../../components/Heads";
+import Navbar from "./../../components/Navbar";
+import Branch from "./../../components/Branch";
+import Paper from "./../../components/Paper";
+import ScenarioSheet from "./../../components/ScenarioSheet";
 import { useState } from "react";
 
-export default function Treatment() {
+export default function Scenario() {
   const [branches, setBranches] = useState([1]);
   return (
     <>
       <div>
-        <Heads title="Treatment" />
+        <Heads title="Scenario" />
         <Navbar />
         <div className="grid grid-cols-4">
           <aside className="bg-gray-900 p-3 min-h-screen">
@@ -25,7 +25,7 @@ export default function Treatment() {
             </button>
             {branches.map((index) => (
               <Branch key={index}>
-                <TreatmentSheet />
+                <ScenarioSheet />
               </Branch>
             ))}
           </aside>

@@ -3,7 +3,7 @@ export default function Branch({ children }) {
     <div className="text-gray-600 border-solid border-2 border-gray-800 mt-3 p-3">
       <div
         className="text-right font-semibold text-lg cursor-pointer hover:text-white rounded-lg"
-        onClick={(e) => {
+        onClick={(e: React.MouseEvent<HTMLElement>) => {
           console.log(e.target.nextSibling.className);
           e.target.nextSibling.className === "hidden"
             ? (e.target.nextSibling.className =

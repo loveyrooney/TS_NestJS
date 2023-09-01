@@ -1,7 +1,7 @@
-import Link from "next/link";
-import Heads from "./../components/Heads";
-import Space from "@/pages/space";
-import Navbar from "@/components/Navbar";
+/* eslint-disable @next/next/no-img-element */
+import React from "react";
+import Heads from "../components/Heads";
+import Navbar from "./../components/Navbar";
 
 //Home() 함수 인자에 {results} 주면 pageProps를 쓸 수 있음.
 export default function Home() {
@@ -40,7 +40,7 @@ export default function Home() {
                         Shooting Stars
                       </h1>
                       <p className="leading-relaxed">
-                        here is this scenario's logline.
+                        here is this scenario logline.
                       </p>
                     </div>
                   </div>

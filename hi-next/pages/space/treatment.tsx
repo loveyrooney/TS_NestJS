@@ -1,16 +1,17 @@
-import Heads from "@/components/Heads";
-import Navbar from "@/components/Navbar";
-import Branch from "@/components/Branch";
+import Branch from "./../../components/Branch";
+import Paper from "./../../components/Paper";
+import TreatmentSheet from "./../../components/TreatmentSheet";
 import { useState } from "react";
-import SceneSheet from "@/components/SceneSheet";
-import Table from "@/components/Table";
+import Heads from "./../../components/Heads";
+import Navbar from "./../../components/Navbar";
+import React from "react";
 
-export default function Scene() {
+export default function Treatment() {
   const [branches, setBranches] = useState([1]);
   return (
     <>
       <div>
-        <Heads title="Scene" />
+        <Heads title="Treatment" />
         <Navbar />
         <div className="grid grid-cols-4">
           <aside className="bg-gray-900 p-3 min-h-screen">
@@ -25,11 +26,11 @@ export default function Scene() {
             </button>
             {branches.map((index) => (
               <Branch key={index}>
-                <SceneSheet />
+                <TreatmentSheet />
               </Branch>
             ))}
           </aside>
-          <Table />
+          <Paper />
         </div>
       </div>
     </>
