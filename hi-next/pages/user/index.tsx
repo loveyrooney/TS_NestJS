@@ -6,6 +6,7 @@ export default function User() {
   return (
     <>
       <Heads title="Sign In" />
+      <Navbar isLogin={false} userName={null} />
       <section className="text-gray-400 bg-gray-900 body-font relative">
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-col text-center w-full mb-12">

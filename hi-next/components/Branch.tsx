@@ -41,3 +41,5 @@ export default function Branch({ list, index }) {
     </div>
   );
 }
+
+//버전n 에 subtitle이 필요하고 그거를 rename의 타겟이 되도록 한다.

@@ -1,7 +1,10 @@
+import SaveButton from "./SaveButton";
+
 export default function ScenarioPaper() {
   return (
     <>
-      <form className="col-start-4 col-span-9 bg-gray-700 text-gray-400">
+      <form className="col-start-2 col-span-3 bg-gray-700 text-gray-400">
+        <SaveButton />
         <input
           type="text"
           className="text-gray-400 bg-gray-800"

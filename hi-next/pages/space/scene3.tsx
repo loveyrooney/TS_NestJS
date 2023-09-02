@@ -8,9 +8,9 @@ export default function scene3() {
         <Table
           columnTitle={{
             className: [
+              "col-start-2 col-span-3",
               "col-start-5 col-span-3",
-              "col-start-8 col-span-3",
-              "col-start-11 col-span-2",
+              "col-start-8 col-span-2",
             ],
             title: "column",
           }}

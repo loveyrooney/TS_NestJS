@@ -1,18 +1,22 @@
 import Cell from "./Cell";
 import Column from "./Column";
+import SaveButton from "./SaveButton";
 
 export default function Table({ columnTitle }) {
   return (
-    <>
-      <div className="col-start-4 text-gray-400 bg-gray-800 text-center">
-        <div className="border-2 border-gray-700">#Num</div>
+    <form className="col-start-2 col-span-3 grid grid-cols-9 text-gray-400 bg-gray-800 text-center">
+      <div className="col-span-1">
+        <div className="border-2 border-gray-700">
+          <SaveButton />
+          <span>#Num</span>
+        </div>
         <Cell cells={Array.from({ length: 22 })} />
-        <button>➕page</button>
+        <button type="button">➕page</button>
       </div>
       {columnTitle.className.map((el, index) => (
         <Column key={index} classProps={el} title={columnTitle.title} />
       ))}
-    </>
+    </form>
   );
 }
 

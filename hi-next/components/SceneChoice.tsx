@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function SceneChoice() {
   return (
-    <div className="col-start-4 col-span-9">
+    <div className="col-start-2 col-span-3">
       <div className="m-3 p-4 w-80 h-96 text-gray-400 flex items-center bg-gray-800 shadow-red-500 rounded-md h-40 flex flex-col">
         <p>Table Layout</p>
         <Link

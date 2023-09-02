@@ -1,12 +1,9 @@
 import React from "react";
 import "../styles/globals.css";
-import Link from "next/link";
-import Navbar from "../components/Navbar";
 
 export default function App({ Component, pageProps }) {
   return (
     <>
-      <Navbar />
       <Component {...pageProps} />
       <footer className="text-center font-light text-green-500">
         copyrighted by rooney
