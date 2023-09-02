@@ -32,7 +32,7 @@ export default function Menu({ children }) {
           />
         ))}
       </aside>
-      <div>{children}</div>
+      {children}
     </div>
   );
 }

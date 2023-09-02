@@ -1,11 +1,11 @@
 import Menu from "../../components/Menu";
-import Paper from "../../components/Paper";
+import TreatmentPaper from "../../components/TreatmentPaper";
 
 export default function treatment() {
   return (
     <>
       <Menu>
-        <Paper />
+        <TreatmentPaper />
       </Menu>
     </>
   );

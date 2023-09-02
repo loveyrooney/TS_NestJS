@@ -1,9 +1,13 @@
-export default function Cell({ classProps }) {
+export default function Cell({ cells }) {
   return (
-    <div className={classProps}>
-      <div className="text-white bg-gray-700">hi</div>
-    </div>
+    <>
+      {cells.map((el, index) => (
+        <input
+          key={index}
+          type="text"
+          className="block w-full text-center text-gray-400 bg-gray-800 rounded-none focus:ring-gray-700"
+        />
+      ))}
+    </>
   );
 }
-
-//props 받은거 적용 제대로 안되는거 해결하기

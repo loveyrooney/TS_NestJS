@@ -1,4 +1,4 @@
-import SceneSheet from "./Sheet";
+import Branchtab from "./Branchtab";
 
 export default function Branch({ list, index }) {
   return (
@@ -37,7 +37,7 @@ export default function Branch({ list, index }) {
           />
         </svg>
       </div>
-      <SceneSheet list={list} />
+      <Branchtab list={list} />
     </div>
   );
 }

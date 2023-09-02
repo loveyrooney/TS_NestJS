@@ -1,11 +1,12 @@
 import Menu from "../../components/Menu";
-import Paper from "../../components/Paper";
+import ScenarioPaper from "../../components/ScenarioPaper";
+import Paper from "../../components/TreatmentPaper";
 
 export default function scenario() {
   return (
     <>
       <Menu>
-        <Paper />
+        <ScenarioPaper />
       </Menu>
     </>
   );

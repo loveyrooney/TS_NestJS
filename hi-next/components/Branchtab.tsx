@@ -1,4 +1,4 @@
-export default function Sheet({ list }) {
+export default function Branchtab({ list }) {
   return (
     <>
       <ul>
