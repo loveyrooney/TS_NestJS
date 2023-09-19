@@ -3,7 +3,9 @@ export default function Branchtab({ list }) {
     <>
       <ul>
         {list.map((el, index) => (
-          <li key={index}>{el}</li>
+          <li key={index}>
+            #{el.synNo}. {el.synTitle} - {el.synSubtitle}
+          </li>
         ))}
       </ul>
     </>

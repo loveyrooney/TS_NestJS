@@ -29,7 +29,18 @@ export default function Menu({ children }) {
               list={
                 router.pathname === "/space/treatment"
                   ? ["기획안", "스토리", "인물"]
-                  : ["#1"]
+                  : [
+                      {
+                        synNo: "1",
+                        synTitle: "장소 1",
+                        synSubtitle: "누구와 누구의 만남",
+                      },
+                      {
+                        synNo: "2",
+                        synTitle: "장소 2",
+                        synSubtitle: "무슨 일 일어남",
+                      },
+                    ]
               }
             />
           ))}
